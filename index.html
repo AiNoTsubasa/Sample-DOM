@@ -1,0 +1,51 @@
+<html>
+ <head> 
+  <title>Web Title</title>
+ </head>
+  
+ <body id="app">
+  <div id="myDiv"></div>
+  
+  <ul id="myList">
+   <li class="item">1</li>
+   <li class="item">2</li>
+   <li class="item">3</li>
+   <li class="item">4</li>
+   <li class="item">5</li>
+  </ul>
+  
+  <button id="deleteButton">Delete</button> | <button id="insertButton">Insert</button>
+  
+  
+  <script>
+   // พื้นที่สำหรับใส่โค้ด Javascript
+   let myDiv = document.getElementById('myDiv');
+   myDiv.innerHTML = 'Hello my world!!';
+   
+   let listItem = document.getElementsByClassName('item');
+   listItem[0].innerHTML = listItem.length + ' items';
+   listItem[1].style['color'] = '#FF0000';
+   listItem[2].style['background-color'] = '#FF0000';
+   
+   let deleteButton = document.getElementById('deleteButton');
+   deleteButton.addEventListener('click', function() {
+    alert('Click delete button!!!');
+	let app = document.getElementById('app');
+	let myDiv = document.getElementById('myDiv');
+	app.removeChild(myDiv);
+   });
+   
+   let insertButton = document.getElementById('insertButton');
+   insertButton.addEventListener('click', function() {
+    alert('Click insert button!!!');
+    let newItem = document.createElement("li");
+    let text = document.createTextNode("new li item");
+    newItem.appendChild(text);
+
+    let myList = document.getElementById("myList");
+    myList.appendChild(newItem);
+   });
+  </script>
+ </body>
+  
+</html>
